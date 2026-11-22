@@ -8,6 +8,10 @@
 
 Session-based selection and bulk actions for object lists.
 
+*This documentation was written by an artificial intelligence and may contain errors or approximations.
+It has not yet been fully reviewed by a human. If anything seems unclear or incomplete,
+please feel free to contact the author of this package.*
+
 The checkbox in the list heading cycles between all matching results and an empty selection. If a partial
 selection was saved, the next click from an empty selection restores it. The arrow in the action bar advances
 the same cycle while the bar is visible. The bar appears whenever rows are selected and counts the full
