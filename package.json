@@ -1,0 +1,59 @@
+{
+	"author": {
+		"name": "Baptiste Pillot",
+		"email": "baptiste@pillot.fr"
+	},
+	"dependencies": {
+		"@itrocks/action-request": "latest",
+		"@itrocks/build": "latest",
+		"@itrocks/edit-components": "latest",
+		"@itrocks/list": "latest",
+		"@itrocks/request-response": "latest",
+		"@itrocks/route": "latest",
+		"@itrocks/storage": "latest",
+		"@itrocks/translate": "latest"
+	},
+	"description": "Session-based selection and bulk actions for object lists",
+	"devDependencies": {
+		"@types/node": "^24.10",
+		"sass": "^1.95",
+		"typescript": "^7.0"
+	},
+	"engines": {
+		"node": ">=24"
+	},
+	"exports": {
+		".": "./cjs/list-selection.js",
+		"./build.js": "./build.js"
+	},
+	"files": [
+		"LICENSE",
+		"README.md",
+		"build.js",
+		"build.d.ts",
+		"cjs",
+		"docs/dependencies.md",
+		"list-selection.css",
+		"!*.map"
+	],
+	"homepage": "https://it.rocks",
+	"keywords": [
+		"backend",
+		"bulk actions",
+		"front-end",
+		"it.rocks",
+		"list",
+		"selection",
+		"session"
+	],
+	"license": "ISC",
+	"name": "@itrocks/list-selection",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/itrocks-ts/list-selection.git"
+	},
+	"scripts": {
+		"build": "tsc && tsc -p src/front && node -e \"const fs=require('node:fs'); for(const name of fs.readdirSync('src')) if(name.endsWith('.html')) fs.copyFileSync('src/'+name,'cjs/'+name)\" && sass --no-source-map src/list-selection.scss:list-selection.css"
+	},
+	"version": "0.0.1"
+}

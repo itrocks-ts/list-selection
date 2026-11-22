@@ -1,0 +1,83 @@
+main > article[data-action="list"] > form[data-list-selection-active] {
+	> footer:not([inert]) {
+		grid-template-rows: minmax(0, 1fr);
+	}
+
+	> footer[inert] {
+		grid-template-rows: minmax(0, 0fr);
+		visibility: hidden;
+	}
+
+	&[data-list-selection-active="false"] > footer > .selection.actions > li:not(.list-selection-shortcut),
+	> footer > .selection.actions > :is(.list-selection-shortcut, .list-selection-summary)[hidden] {
+		display: none;
+	}
+
+	> footer > .selection.actions > .list-selection-shortcut {
+		align-self: center;
+		background: none;
+		border: 0;
+
+		> button {
+			background: transparent;
+			block-size: 26px;
+			border: 0;
+			border-radius: 4px;
+			cursor: pointer;
+			display: grid;
+			inline-size: 26px;
+			padding: 0;
+			place-items: center;
+
+			&:hover {
+				background: #f4f4f4;
+			}
+
+			&::before {
+				background: #666;
+				block-size: 20px;
+				content: '';
+				inline-size: 100%;
+				mask: url('../edit-components/selection-arrow.svg') calc(50% - 4px) center / contain no-repeat;
+			}
+		}
+	}
+
+	> footer > .selection.actions > .list-selection-summary {
+		align-self: center;
+		background: none;
+		border: 0;
+		margin-inline-start: 3px;
+		white-space: nowrap;
+
+		> span {
+			padding: 0;
+		}
+	}
+}
+
+table.objects > thead > tr.properties > th.select {
+	&:has(> .list-selection-control:not([hidden]))::before {
+		content: none;
+	}
+
+	> .list-selection-control:not([hidden]) {
+		block-size: 28px;
+		box-sizing: border-box;
+		display: grid;
+		padding-block-start: 6px;
+		place-items: start center;
+
+		> input {
+			margin: 0;
+		}
+
+		&:has(> input:enabled) {
+			cursor: pointer;
+
+			> input {
+				cursor: inherit;
+			}
+		}
+	}
+}
